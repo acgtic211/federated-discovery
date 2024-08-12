@@ -1,0 +1,82 @@
+{
+    "node1":{
+        "name" : "node1",
+        "address" : "http://127.0.0.1:3021",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3023",
+            "http://127.0.0.1:3027",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node2": {
+        "name" : "node2",
+        "address" : "http://127.0.0.1:3023",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021", 
+            "http://127.0.0.1:3025", 
+            "http://127.0.0.1:3027",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node3": {
+        "name" : "node3",
+        "address" : "http://127.0.0.1:3025",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3023",
+            "http://127.0.0.1:3029",
+            "http://127.0.0.1:3033",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node4": {
+        "name" : "node4",
+        "address" : "http://127.0.0.1:3027",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021",
+            "http://127.0.0.1:3023",
+            "http://127.0.0.1:3029",
+            "http://127.0.0.1:3031"
+        ]
+    },
+
+    "node5": {
+        "name" : "node5",
+        "address" : "http://127.0.0.1:3029",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3025",
+            "http://127.0.0.1:3027",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node6": {
+        "name" : "node6",
+        "address" : "http://127.0.0.1:3031",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3027",
+            "http://127.0.0.1:3033",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node7": {
+        "name" : "node7",
+        "address" : "http://127.0.0.1:3033",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3025",
+            "http://127.0.0.1:3031",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "central-server": {
+        "name" : "central-server",
+        "address" : "http://127.0.0.1:7999",
+        "linkedDiscoveries" : [ 
+
+        ]
+    }
+}

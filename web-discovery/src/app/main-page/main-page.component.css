@@ -1,0 +1,213 @@
+.main-div-center {
+    margin: 0 auto 40px;
+    width: 1024px;
+  }
+
+.search-header {
+    background: #295151; 
+    border-radius: 13px; 
+    border-bottom: 0px !important; 
+    width: 490px; 
+    height: 14px;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    padding: 15px 15px 15px 10px;
+  }
+
+.search-header input {
+    background-color: transparent;
+    border: 0;
+    color: #fdfdfd;
+    flex-grow: 1;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 5px;
+    outline: none;
+    padding: 0;
+    width: 100%;
+}
+  
+.search-header input::placeholder {
+    color: #10d6db;
+}
+
+.result-container {
+  background: #fff;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 19px;
+  overflow-x: auto;
+  height: 300px;
+}
+
+.settings-area {
+    display: flex;
+    position: relative;
+    /*border: 1px solid #2497de;*/
+    border-radius: 7.5px;
+  }
+  
+  .settings-area button {
+    color: #fdfdfd;
+    cursor: pointer;
+    font-size: 16px;
+    height: 24px;
+    align-items: center;
+    background: transparent;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 999;
+  }
+  
+  .settings-area button span {
+    margin-left: 10px;
+  }
+  
+  .settings-area button::after {
+    font-size: 0;
+    line-height: 0;
+    float: left;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid white;
+    margin-left: 2px;
+    margin-top: 3px;
+  }
+  
+  .settings-area button:hover 
+  {
+    color:#2497de !important;
+  }
+  
+  .settings-area button:hover::after {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #2497de;
+  }
+  
+  .settings-area a {
+    color: #fdfdfd;
+  }
+  
+
+.blue-button {
+    background-color: #4d94ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+.time-selector {
+    padding-left: 0px; 
+    padding-right: 0px;
+}
+
+.search-tab {
+  display: flex; 
+  width: 66%;
+  z-index: 0;
+  margin-left: 10px;
+}
+
+.search-tab li { 
+  float: left; 
+  position: relative; 
+  width: 50%;
+}
+
+.search-tab li:hover {
+  color: #00b1ff;
+}
+
+.search-tab a { 
+  padding: 10px 0px;
+  color: white;
+  background: #0D1D40;
+  -webkit-border-top-left-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-topright: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.search-tab .active {
+  /* Highest, active tab is on top */
+  z-index: 1;
+}
+.search-tab .active a { 
+  /* Colors when tab is active */
+  background: #1e345b; 
+}
+.search-tab li:before, .search-tab li:after, 
+.search-tab li a:before, .search-tab li a:after {
+  /* All pseudo elements are 
+     abs. positioned and on bottom */
+  position: absolute;
+  bottom: 0;
+}
+/* Only the first, last, and active
+   tabs need pseudo elements at all */
+.search-tab li:first-child.active:after,   .search-tab li:nth-child(2).active:before, 
+.search-tab li:first-child.active a:after, .search-tab li:nth-child(2).active a:before {
+  content: "";
+}
+.search-tab .active:before, .search-tab .active:after {
+  background: #1e345b; 
+  
+  /* Squares below circles */
+  z-index: 1;
+}
+/* Squares */
+.search-tab li:before, .search-tab li:after {
+  background: #0D1D40;
+  width: 10px;
+  height: 10px;
+}
+.search-tab li:before {
+  left: -10px;      
+}
+.search-tab li:after { 
+  right: -10px;
+}
+/* Circles */
+.search-tab li a:after, .search-tab li a:before {
+  width: 20px; 
+  height: 20px;
+  /* Circles are circular */
+  -webkit-border-radius: 10px;
+  -moz-border-radius:    10px;
+  border-radius:         10px;
+  background: #0D1D40;
+  
+  /* Circles over squares */
+  z-index: 2;
+}
+.search-tab .active a:after, .search-tab .active a:before {
+  background: #0D1D40;
+}
+/* First and last tabs have different
+   outside color needs */
+.search-tab li:first-child.active a:before,
+.search-tab li:nth-child(2).active a:after {
+  background: #0D1D40;
+}
+.search-tab li a:before {
+  left: -20px;
+}
+.search-tab li a:after {
+  right: -20px;
+}

@@ -1,0 +1,68 @@
+{
+    "node1":{
+        "name" : "node1",
+        "address" : "3021",
+        "linkedDiscoveries" : [ 
+            "3023",
+            "3027"
+        ]
+    },
+
+    "node2": {
+        "name" : "node2",
+        "address" : "3023",
+        "linkedDiscoveries" : [ 
+            "3021", 
+            "3025", 
+            "3027"
+        ]
+    },
+
+    "node3": {
+        "name" : "node3",
+        "address" : "3025",
+        "linkedDiscoveries" : [ 
+            "3023",
+            "3029",
+            "3033"
+        ]
+    },
+
+    "node4": {
+        "name" : "node4",
+        "address" : "3027",
+        "linkedDiscoveries" : [ 
+            "3021",
+            "3023",
+            "3029",
+            "3031"
+        ]
+    },
+
+    "node5": {
+        "name" : "node5",
+        "address" : "3029",
+        "linkedDiscoveries" : [ 
+            "3025",
+            "3027"
+        ]
+    },
+
+    "node6": {
+        "name" : "node6",
+        "address" : "3031",
+        "linkedDiscoveries" : [ 
+            "3027",
+            "3033"
+        ]
+    },
+
+    "node7": {
+        "name" : "node7",
+        "address" : "3033",
+        "linkedDiscoveries" : [ 
+            "3025",
+            "3031"
+        ]
+    }
+}

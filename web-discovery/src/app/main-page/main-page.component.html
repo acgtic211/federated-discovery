@@ -1,0 +1,93 @@
+<div class="main-div-center" style="height: 100%;">
+    <div style="height: 35vh;">
+      <div style="display: block; position: relative; height: 35vh;">
+        <div style="position: absolute; bottom: 0; left: 26%;">
+          <div style="display: flex; align-items: end; justify-content: center; padding-bottom: 10px;">
+            <img class="logo" src="assets/icons/Wagallanes.png" alt="Discovery Service">
+          </div>
+          <ul class="search-tab">
+            <li class="selectable" [class.active]="selectedTab === 'D'" (click)="selectedTab='D'; selectedTypeSearch=0; searchResult={}"><a>Data Dictionary</a></li> 
+          </ul>
+          <div class="d-flex horizontal-middle" style="height: 100%; align-items: end;">
+            <div class="search-header">
+              <input type="text" #searchInput (keyup.enter)="processSearch(searchInput.value)" placeholder="Search" maxlength="40" minlength="2" value="">
+              <img alt="search" loading="lazy" width="18" height="18" decoding="async" style="color:transparent" src="assets/icons/search.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="  position: relative; left: 600px; bottom: 400px;">
+        <div id="graph"></div>
+      </div>
+    </div>
+    <div class="horizontal-middle settings-area" style="color: white;">
+      <div>
+        <div class="d-flex" style="padding-bottom: 20px;">
+          <span>Hops</span>
+          <input #hopsInput type="range" min="0" max="10" step="1" [(ngModel)]="hops"/>
+          <span>{{hops}}</span>
+        </div>
+
+        <div *ngIf="selectedTab === 'AI'" class="d-flex" style="padding-bottom: 20px;">
+          <span>Treshold</span>
+          <input #hopsInput type="range" min="1" max="9" step="1" [(ngModel)]="treshold"/>
+          <span>0.{{treshold}}</span>
+        </div>
+
+        <div class="d-flex">
+          <span>Time</span>
+          <input #hopsInput type="range" min="50" max="5000" step="50" [(ngModel)]="timeLimit"/>
+          <span>{{timeLimit}}ms</span>
+        </div>
+      </div>
+      <button mat-button class="blue-button time-selector" [matMenuTriggerFor]="searchTypeMenu">
+        <span>{{typesOfSearch[selectedTypeSearch]}}</span>
+      </button>
+        <mat-menu #searchTypeMenu="matMenu">
+          <ng-container *ngFor="let type of typesOfSearch; let i = index" >
+            <button *ngIf="!(type === 'Recommended Path' && selectedTab === 'D')" mat-menu-item (click)="selectedTypeSearch=i">{{type}}</button>
+          </ng-container>
+        </mat-menu>
+    </div>
+    <div class="d-flex horizontal-middle" style="align-items: baseline;">
+      <div *ngIf="searchResult && (searchResult | json) != '{}' && selectedTab === 'AI'" class="result-container thin-scrollbar">
+        <p>Query from node: {{searchResult['Query from node ']}}</p>
+        <p>Number of hops: {{searchResult['Number of hops ']}}</p>
+        <p>Total time: {{searchResult['Total time ']}}</p>
+        <div class="d-flex">
+          <ng-container *ngFor="let prediction of searchResult.prediction; last as isLast" >
+            <div style="background: wheat; border-radius: 4px; padding: 10px; margin: 5px; width: 385px;">
+              <p *ngIf="prediction">Node: {{prediction.node}}</p>
+              <div *ngIf="prediction">
+                <div *ngFor="let pred of prediction.predictions">
+                  <p>{{pred}}</p>
+                </div>
+              </div>
+              <p *ngIf="!prediction">Time limit reached</p>
+            </div>
+            <div class="d-flex align-middle">
+              <img *ngIf="!isLast" alt="right arrow" loading="lazy" width="28" height="18" decoding="async" style="color:transparent" src="assets/icons/right_arrow.png">
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div *ngIf="searchResult && (searchResult | json) != '{}' && selectedTab === 'D'" class="result-container thin-scrollbar">
+        <p>Query from node: {{getNodeNumber(searchResult['Query from node '])}}</p>
+        <p>Number of nodes visited: {{searchResult.prediction?.length-1}}</p>
+        <p>Total time: {{searchResult['Total time ']}}</p>
+        <div class="d-flex">
+          <ng-container *ngFor="let prediction of searchResult.prediction; last as isLast" >
+            <div style="background: wheat; border-radius: 4px; padding: 10px; margin: 5px;" [style.width.px]="prediction &&  prediction.predictions.items ? 385 : 178" [style.min-width.px]="prediction &&  prediction.predictions.items ? '' : 178">
+              <p *ngIf="prediction">Node: {{ getNodeNumber(prediction?.node)}}</p>
+              <p *ngIf="prediction && !prediction.predictions.items">{{prediction.predictions}}</p>
+              <p *ngIf="!prediction">Time limit reached</p>
+              <ngx-json-viewer *ngIf="prediction &&  prediction.predictions.items" [json]="prediction.predictions.items" [expanded]="false"></ngx-json-viewer>
+            </div>
+            <div class="d-flex align-middle">
+              <img *ngIf="!isLast" alt="right arrow" loading="lazy" width="28" height="18" decoding="async" style="color:transparent" src="assets/icons/right_arrow.png">
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+</div>
