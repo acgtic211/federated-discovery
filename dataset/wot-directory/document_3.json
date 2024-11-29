@@ -1,0 +1,58 @@
+{
+    "id": "DHT11",
+    "@context": "https://iot.mozilla.org/schemas",
+    "@type": [
+        "MultiLevelSensor",
+        "Sensor"
+    ],
+    "__v": 0,
+    "base": "http://192.168.1.14/",
+    "href": "/things/DHT11",
+    "links": [
+        {
+            "rel": "properties",
+            "href": "/things/DHT11/properties"
+        },
+        {
+            "rel": "actions",
+            "href": "/things/DHT11/actions"
+        },
+        {
+            "rel": "events",
+            "href": "/things/DHT11/events"
+        },
+        {
+            "rel": "alternate",
+            "href": "ws://192.168.1.14/things/DHT11"
+        }
+    ],
+    "properties": {
+        "humidity": {
+            "type": "number",
+            "description": "Humidity",
+            "@type": "LevelProperty",
+            "links": [
+                {
+                    "href": "/things/DHT11/properties/humidity"
+                }
+            ]
+        },
+        "temperature": {
+            "type": "number",
+            "description": "Temperature",
+            "@type": "TemperatureProperty",
+            "links": [
+                {
+                    "href": "/things/DHT11/properties/temperature"
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "DHT11 Temperature & Humidity sensor"
+}

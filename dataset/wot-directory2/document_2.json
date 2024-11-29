@@ -1,0 +1,47 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "title": "Esp8266",
+    "id": "esp:light1",
+    "base": "http://192.168.1.10",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "properties": {
+        "led": {
+            "title": "led",
+            "type": "object",
+            "forms": [
+                {
+                    "op": [
+                        "readproperty"
+                    ],
+                    "href": "http://192.168.1.10/led"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "ledon": {
+            "title": "ledon",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://192.168.1.10/led/on"
+                }
+            ]
+        },
+        "ledoff": {
+            "title": "ledoff",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://192.168.1.10/led/off"
+                }
+            ]
+        }
+    },
+    "events": {}
+}

@@ -1,0 +1,49 @@
+{
+    "id": "acg:esp826",
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "actions": {
+        "ledon": {
+            "title": "ledon",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://192.168.1.10/led/on"
+                }
+            ]
+        },
+        "ledoff": {
+            "title": "ledoff",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://192.168.1.10/led/off"
+                }
+            ]
+        }
+    },
+    "base": "http://192.168.1.10",
+    "createdAt": "2021-04-12T07:32:51.729Z",
+    "events": {},
+    "properties": {
+        "led": {
+            "title": "led",
+            "type": "object",
+            "forms": [
+                {
+                    "op": [
+                        "readproperty"
+                    ],
+                    "href": "http://192.168.1.10/led"
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Esp8266",
+    "updatedAt": "2021-04-12T07:33:00.438Z"
+}

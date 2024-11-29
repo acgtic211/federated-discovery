@@ -1,0 +1,44 @@
+{
+    "id": "acg:lab:servo1",
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "actions": {
+        "move": {
+            "title": "move",
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 180
+                }
+            },
+            "output": {
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:servo1/action/move"
+                }
+            ]
+        }
+    },
+    "base": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:servo1/",
+    "createdAt": "2021-10-22T09:28:27.513Z",
+    "events": {},
+    "links": [
+        {
+            "rel": "UI",
+            "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:servo1/links/ui",
+            "type": "text/html"
+        }
+    ],
+    "properties": {},
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "ACG Lab Servo 1",
+    "updatedAt": "2021-10-22T09:35:19.072Z"
+}

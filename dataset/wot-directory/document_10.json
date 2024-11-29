@@ -1,0 +1,68 @@
+{
+    "id": "acg:lab:suitcase-dd-wotlight-001",
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "@type": "light",
+    "actions": {
+        "switch": {
+            "input": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "forms": [
+                {
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:suitcase-dd-wotlight-001/action/switch/",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "properties": {
+        "status": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "forms": [
+                {
+                    "op": [
+                        "readproperty",
+                        "writeproperty"
+                    ],
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:suitcase-dd-wotlight-001/property/status/",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [
+                        "readproperty"
+                    ],
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:suitcase-dd-wotlight-001/property/status/sse",
+                    "subprotocol": "sse",
+                    "response": {
+                        "contentType": "text/event-stream"
+                    }
+                }
+            ]
+        }
+    },
+    "security": [
+        "nosec"
+    ],
+    "securityDefinitions": {
+        "basic_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "ACG Lab Digital Dice Suitcase WoTlight 001"
+}

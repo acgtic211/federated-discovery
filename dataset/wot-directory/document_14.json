@@ -1,0 +1,19 @@
+{
+    "@context": [
+        "https://www.w3.org/2022/wot/td/v1.1",
+        "https://www.w3.org/2022/wot/discovery"
+    ],
+    "@type": [
+        "tm:ThingModel",
+        "ThingDirectory"
+    ],
+    "title": "Node 2",
+    "version": {
+        "model": "1.0.0"
+    },
+    "base": "http://127.0.0.1:3023",
+    "tm:optional": [],
+    "properties": {},
+    "actions": {},
+    "events": {}
+}

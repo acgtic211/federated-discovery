@@ -1,0 +1,27 @@
+{
+    "id": "acg:livinglab:doorsensor1",
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "__v": 0,
+    "properties": {
+        "isclosed": {
+            "type": "string",
+            "description": "Indicates if the door is closed with true or false",
+            "forms": [
+                {
+                    "href": "https://192.168.1.18/property/isclosed/sse",
+                    "op": "readproperty",
+                    "contentType": "text/event-stream;charset=UTF-8"
+                }
+            ]
+        }
+    },
+    "security": [
+        "nosec"
+    ],
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "LivingLab DoorSensor 1"
+}

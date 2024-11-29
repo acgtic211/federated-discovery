@@ -1,0 +1,41 @@
+{
+    "id": "acg:livinglab:temphumiditysensor1",
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "__v": 0,
+    "properties": {
+        "status": {
+            "type": "object",
+            "description": "States the temperature in celsius and the grade of humidity, using the sse form blocks the device making it imposible to handle concurrent petitions",
+            "properties": {
+                "temperature": {
+                    "type": "number"
+                },
+                "humidity": {
+                    "type": "number"
+                }
+            },
+            "forms": [
+                {
+                    "href": "http://192.168.1.21/property/status",
+                    "op": "readproperty",
+                    "contentType": "application/json"
+                },
+                {
+                    "href": "http://192.168.1.21/property/status/sse",
+                    "op": "readproperty",
+                    "contentType": "application/x-ndjson",
+                    "subprotocol": "sse"
+                }
+            ]
+        }
+    },
+    "security": [
+        "nosec"
+    ],
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "LivingLab temperature and humidity sensor 1"
+}
